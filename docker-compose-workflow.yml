@@ -75,6 +75,13 @@ services:
     depends_on:
       - neo4j
 
+  toposoid-common-table-recognition-web:
+    image: toposoid/toposoid-common-table-recognition-web:0.7-SNAPSHOT
+    environment:
+      - TOPOSOID_TABLE_RECOGNITION_MODEL=tabicl 
+    ports:
+      - 9019:9019
+
   toposoid-sentence-parser-japanese-web:
     image: toposoid/toposoid-sentence-parser-japanese-web:0.7-SNAPSHOT
     environment:
