@@ -1,11 +1,7 @@
 version: '3'
 services:
   toposoid-deduction-unit-whole-sentence-table-match-web:
-    build:
-      context: ../
-      dockerfile: Dockerfile-workflow
-      args:
-        - TARGET_BRANCH=feature    
+    image: toposoid/toposoid-deduction-unit-whole-sentence-table-match-web:0.7-SNAPSHOT
     tty: true
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-whole-sentence-table-match-web
