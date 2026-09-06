@@ -1,7 +1,7 @@
 version: '3'
 services:
   toposoid-deduction-unit-whole-sentence-table-match-web:
-    image: toposoid/toposoid-deduction-unit-whole-sentence-table-match-web:0.7-SNAPSHOT
+    image: toposoid-deduction-unit-whole-sentence-table-match-web:0.7-SNAPSHOT
     tty: true
     environment:
       - PRIVATE_IP_ADDRESS=toposoid-deduction-unit-whole-sentence-table-match-web
