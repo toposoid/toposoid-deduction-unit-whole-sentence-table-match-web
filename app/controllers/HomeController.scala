@@ -59,7 +59,7 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
       val analyzedSentenceObjects: AnalyzedSentenceObjects = Json.parse(json.toString).as[AnalyzedSentenceObjects]
       val asos: List[AnalyzedSentenceObject] = analyzedSentenceObjects.analyzedSentenceObjects
       //sentence全体を説明する画像がない場合、推論する意味はない。
-      val result:List[VerifyingEdges] = asos.filter(x => x.knowledgeBaseSemiGlobalNode.localContextForFeature.knowledgeFeatureReferences.filter(y => y.featureType == FeatureType.IMAGE.index).size > 0).size match {
+      val result:List[VerifyingEdges] = asos.filter(x => x.knowledgeBaseSemiGlobalNode.localContextForFeature.knowledgeFeatureReferences.filter(y => y.featureType == FeatureType.TABLE.index).size > 0).size match {
         case 0 => {
           List.empty[VerifyingEdges]
         }
@@ -75,7 +75,7 @@ class HomeController @Inject()(val controllerComponents: ControllerComponents) e
           }
         }
       }
-      logger.info(ToposoidUtils.formatMessageForLogger("Embedded Image In Whole Sentence analysis completed.", transversalState.userId))      
+      logger.info(ToposoidUtils.formatMessageForLogger("Embedded Table In Whole Sentence analysis completed.", transversalState.userId))      
       Ok(Json.toJson(result)).as(JSON)        
 
     } catch {
